@@ -1,0 +1,79 @@
+V_Macon{A_30:R_Les-Echets,N_50:V_Villeurbanne,A_60:V_Meyzieu}
+V_Meyzieu{A_60:V_Macon,D_5:R_McDo-Decines}
+R_McDo-Decines{D_5:V_Meyzieu}
+
+
+
+
+Villeurbanne , Macon ; 		N 70
+Villeurbanne , Les-Echets ; 	D 30
+Caluire , Rillieux ; 	D 24
+Caluire , Marie-9e ; 	D 23
+Rilleux , Marie-9e ; 	N 30
+Rilleux , Confluence ; 	D 35
+Marie-9e , Fourvière ;	 D 20
+Fourvière , Les Echets ; 	D 30
+Fourvière , McDo-Décines ;	 N 20
+Meyzieu , McDo-Décines ; 	D 3
+Meyzieu , Macon ;	 A 80
+Macon , Les Echets ; 	A 70
+Confluence , Mcdo-Décines ; 	D 15
+Confluence , Les-Echets ; 	D 20
+Andrezieux , L'Abresle ; 	N 50
+Saint-etienne , Andrezieux-boutheon 	A 17
+Caluire , L'Arbresle 	A 35
+Venissieux , Parc-de-la-tete-d'or 	D 15
+Venissieux , Saint-etienne 	A 60
+Roanne , Balbygny 	N 30
+Balbigny , L'abresle 	A 55
+Roanne , Lapalisse 	N 50
+Digoin , lapalisse 	D 40
+Digoin , Macon 		N 80
+Caluire , Escape-Game-Perrache	 A 5 
+Villeurbanne , Laser-Game-Genas		 N 20
+Rilleux , Bowling-Bron 		N 20
+Venissieux , Cinema-Brignais 	A 20
+Craponne , Subway-Vaulx 	N 25
+Craponne , KFC-Saint-Priest	 A 30
+Burger-King-Limonest , Cinema-Brignais 	D 30
+Villefranche , La-Marinade	 A 40 
+Genas , Wok-Villeurbanne	 D 10
+
+D:13
+N:10
+A:10
+
+Villeurbanne,
+Meyzieu,
+Les Echets,
+Marie-9e,
+Rilleux,
+Caluire,
+Macon,
+Fourviere,
+Andrezieux,
+L'Abresle,
+Venissieux,
+Saint-etienne,
+Balbigny,
+Roanne,
+Digoin,
+Craponne,
+Villefranche,
+Genas,
+
+
+Mcdo-Décines,   Meyzieu , McDo-Décines ; D 3
+Wok,  	Genas , Wok-Villeurbanne D 10
+La Marinade,   Villefranche , La-Marinade A 40 
+Burger-King-Linmonest, 	Burger-King-Limonest , Cinema-Brignais D 30
+KFC-Saint-Priest,  	Craponne , KFC-Saint-Priest A 30
+Subway-Vaulx,   	Craponne , Subway-Vaulx N 25
+
+
+Confluence,   	Rilleux , Confluence ; D 35
+Parc de la tete d'or,   	Venissieux , Parc-de-la-tete-d'or D 15
+Cinema Brignais,  	 Venissieux , Cinema-Brignais A 20
+Bowling-Bron,   	Rilleux , Bowling-Bron N 20
+Laser-game-Genas, 	Villeurbanne , Laser-Game-Genas N 20
+Escape-Game-Perrache,    Caluire , Escape-Game-Perrache A 5
