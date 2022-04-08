@@ -1,79 +1,31 @@
-V_Macon{A_30:R_Les-Echets,N_50:V_Villeurbanne,A_60:V_Meyzieu}
-V_Meyzieu{A_60:V_Macon,D_5:R_McDo-Decines}
-R_McDo-Decines{D_5:V_Meyzieu}
-
-
-
-
-Villeurbanne , Macon ; 		N 70
-Villeurbanne , Les-Echets ; 	D 30
-Caluire , Rillieux ; 	D 24
-Caluire , Marie-9e ; 	D 23
-Rilleux , Marie-9e ; 	N 30
-Rilleux , Confluence ; 	D 35
-Marie-9e , Fourvière ;	 D 20
-Fourvière , Les Echets ; 	D 30
-Fourvière , McDo-Décines ;	 N 20
-Meyzieu , McDo-Décines ; 	D 3
-Meyzieu , Macon ;	 A 80
-Macon , Les Echets ; 	A 70
-Confluence , Mcdo-Décines ; 	D 15
-Confluence , Les-Echets ; 	D 20
-Andrezieux , L'Abresle ; 	N 50
-Saint-etienne , Andrezieux-boutheon 	A 17
-Caluire , L'Arbresle 	A 35
-Venissieux , Parc-de-la-tete-d'or 	D 15
-Venissieux , Saint-etienne 	A 60
-Roanne , Balbygny 	N 30
-Balbigny , L'abresle 	A 55
-Roanne , Lapalisse 	N 50
-Digoin , lapalisse 	D 40
-Digoin , Macon 		N 80
-Caluire , Escape-Game-Perrache	 A 5 
-Villeurbanne , Laser-Game-Genas		 N 20
-Rilleux , Bowling-Bron 		N 20
-Venissieux , Cinema-Brignais 	A 20
-Craponne , Subway-Vaulx 	N 25
-Craponne , KFC-Saint-Priest	 A 30
-Burger-King-Limonest , Cinema-Brignais 	D 30
-Villefranche , La-Marinade	 A 40 
-Genas , Wok-Villeurbanne	 D 10
-
-D:13
-N:10
-A:10
-
-Villeurbanne,
-Meyzieu,
-Les Echets,
-Marie-9e,
-Rilleux,
-Caluire,
-Macon,
-Fourviere,
-Andrezieux,
-L'Abresle,
-Venissieux,
-Saint-etienne,
-Balbigny,
-Roanne,
-Digoin,
-Craponne,
-Villefranche,
-Genas,
-
-
-Mcdo-Décines,   Meyzieu , McDo-Décines ; D 3
-Wok,  	Genas , Wok-Villeurbanne D 10
-La Marinade,   Villefranche , La-Marinade A 40 
-Burger-King-Linmonest, 	Burger-King-Limonest , Cinema-Brignais D 30
-KFC-Saint-Priest,  	Craponne , KFC-Saint-Priest A 30
-Subway-Vaulx,   	Craponne , Subway-Vaulx N 25
-
-
-Confluence,   	Rilleux , Confluence ; D 35
-Parc de la tete d'or,   	Venissieux , Parc-de-la-tete-d'or D 15
-Cinema Brignais,  	 Venissieux , Cinema-Brignais A 20
-Bowling-Bron,   	Rilleux , Bowling-Bron N 20
-Laser-game-Genas, 	Villeurbanne , Laser-Game-Genas N 20
-Escape-Game-Perrache,    Caluire , Escape-Game-Perrache A 5
+V_Villeurbanne{N_70:V_Macon,D_30:V_Les-Echets,N_20:L_Laser-Game-Genas}  			
+V_Caluire{D_24:V_Rillieux,D_23:V_Marie-9e,A_35:V_L'arbresle,A_5:L_Escape-Game-Perrache}  	
+V_Rillieux{N_30:V_Marie-9e,D_34:L_Confluence,N_20:L_Bowling-Bron,D_24:V_Caluire}  	
+V_Marie-9e{D_20:V_Fourvière,D_23:V_Caluire,N_30:V_Rillieux} 	 
+V_Fourvière{D_30:V_Les-Echets,N_20:R_McDo-Décines,D_20:V_Marie-9e}  	
+V_Meyzieu{D_3:R_McDo-Décines,A_80:V_Macon} 	
+V_Macon{A_70:V_Les-Echets,A_80:V_Meyzieu,N_80:V_Digoin,N_70:V_Villeurbanne}  	  	
+V_Andrezieux{N_50:V_L'abresle,A_17:V_Saint-etienne} 	
+V_Saint-etienne{A_17:V_Andrezieux,A_60:V_Venissieux} 		
+V_Venissieux{D_15:V_Parc-de-la-tete-d'or,A_60:V_Saint-etienne,A_20:L_Cinema-Brignais} 	
+V_Roanne{N_30:V_Balbygny,N_50:V_lapalisse} 	
+V_Balbigny{A_55:V_L'abresle,N_30:V_Roanne} 		
+V_Digoin{N_80:V_Macon,D_40:V_Lapalisse} 			 	
+V_Craponne{N_25:R_Subway-Vaulx,A_30:R_KFC-Saint-Priest} 		 
+V_Villefranche{A_40:R_La-Marinade}	 
+V_Genas{D_10:R_Wok-Villeurbanne}
+V_L'abresle{N_50:V_Andrezieux,A_55:V_Balbigny,A_35:V_Caluire}	 
+V_Les-Echets{D_30:V_Villeurbanne,D_30:V_Fourvière,D_20:L_Confluence}
+V_lapalisse{N_50:V_Roanne,D_40:V_Digoin}
+R_Burger-King-Limonest{D_30:L_Cinema-Brignais} 	
+R_Mcdo-Décines{D_3:V_Meyzieu,N_20:V_Fourvière,D_15:L_Confluence}
+R_Subway-Vaulx{N_25:V_Craponne}
+R_KFC-Saint-Priest{A_30:V_Craponne}
+R_Wok{D_10:V_Genas}
+R_La-Marinade{A_40:V_Villefranche}
+L_Confluence{D_15:R_Mcdo-Décines,D_20:V_Les-Echets,D_34:V_Rilleux}
+L_Escape-Game-Perrache{A_5:V_Caluire}
+L_Laser-game-Genas{N_20:V_Villeurbanne}
+L_Bowling-Bron{N_20:V_Rilleux}
+L_Cinema-Brignais{A_20:V_Venissieux,D_30:R_Burger-King-Limonest}
+L_Parc-de-la-tete-d'or{D_15:V_Venissieux}
