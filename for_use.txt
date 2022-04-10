@@ -1,0 +1,25 @@
+Pour utiliser ce programme, notez que :
+
+    1 - Dans le fichier, deux lieux possedant le meme nom mais un type different risque d'engendrer
+    des problemes. Ne faites pas de noms doublons sur les lieux.
+    <!> A savoir : les espaces sont autorisés pour les noms des lieux.
+
+    2 - Respectez la syntaxe :
+            TypeVille_NomVille{TypeRoute1_KilometresRoute1:TypeVilleRelation1_NomVileRelation1,TypeRoute2_KilometresRoute2:TypeVilleRelation2_NomVileRelation2,...}
+            TypeVille2_NomVille2{TypeRoute1_KilometresRoute1:TypeVilleRelation1_NomVileRelation1,...} 
+        ex : 
+            V_Meyzieu{D_3:R_McDo-Décines,A_80:V_Macon} 
+            V_Caluire{D_24:V_Rillieux,D_23:V_Marie-9e,A_35:V_L'arbresle,A_5:L_Escape-Game-Perrache}  
+    Sans quoi le programme sera incapable de fonctionner, car il ne comprendra pas le fichier.
+
+    3 - Ne renommez pas le fichier "knots.csv", ou si vous le renommez, pensez à modifier dans 
+    le fichier ManageLists.java -> fonction fillArrayList() -> ligne 29
+            ->  FileReader reader = new FileReader("knots.csv");
+    en remplaçant le "knots.csv" par le nouveau nom (sans espaces).
+
+    4 - Les types sont uniquement V(ville), R(restaurant), L(loisir) pour les lieux et A(autoroute),
+    N(nationale), D(departementale) pour les routes. 
+    Un autre caractère ne causera pas d'erreur, mais mettra V comme valeur par défaut si c'est
+    un lieu, ou A si c'est une route. Faites attention à cela.
+
+    

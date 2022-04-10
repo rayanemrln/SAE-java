@@ -6,7 +6,7 @@ public class ManageLists {
     private ArrayList<Roads> RoadsArray = new ArrayList<Roads>();
 
     public ManageLists() throws IOException{ 
-        this.remplirArrayList();
+        this.fillArrayList();
     }
 
     public int converter(String type){
@@ -21,11 +21,11 @@ public class ManageLists {
             case "L":
                 return 2;
             default: 
-                return -1;
+                return 0;
         }
     }
 
-    public void remplirArrayList() throws IOException{
+    public void fillArrayList() throws IOException{
         FileReader reader = new FileReader("knots.csv");
         if (reader.filetest()){
             String tmp;
@@ -50,6 +50,8 @@ public class ManageLists {
             new Exception("Erreur à l'ouverture du fichier");
         }
         reader.closeReader();
+        this.deleteDuplicateRoads();
+        this.deleteDuplicatePlacesInRoads();
     }   
 
 
@@ -57,39 +59,62 @@ public class ManageLists {
         Matrice M1 = new Matrice(RoadsArray, PlacesArray);
         return M1;
     }
-/*     public void trouverEquivalenceEtRemplacer(){
-        //On trouves doublons dans les sommets
-        int i = 0;
-        int j;
-        while(i<PlacesArray.size()){
-            j = 0;
-            while(j<PlacesArray.size()){
-                if(PlacesArray.get(i).equals(PlacesArray.get(j))&&i!=j){
-                    PlacesArray.set(i,PlacesArray.get(j));
-                }
-                j++;
-            }
-            i++;
-        }
-        i=0;
-        j=0;
 
-        //On modifie les doublons dans les routes
-        while(j<PlacesArray.size()){
-            j=0;
-            while(i<RoadsArray.size()){
-                if(RoadsArray.get(i).getPlace1().equals(PlacesArray.get(j))){
-                    RoadsArray.get(i).setPlace1(PlacesArray.get(j));
+    public void deleteDuplicatePlacesInRoads(){
+        int modifs = 0;
+        System.out.println("Debut mise a jour des differents lieux dans les routes.");
+        for(int i=0; i<PlacesArray.size(); i++)
+            for(int j=0; j<RoadsArray.size(); j++){
+                if(PlacesArray.get(i).equals(RoadsArray.get(j).getLink(0))){
+                    RoadsArray.get(j).setLink(0,PlacesArray.get(i));
+                    modifs++;
                 }
-                if(RoadsArray.get(i).getPlace2().equals(PlacesArray.get(j))){
-                    RoadsArray.get(i).setPlace2(PlacesArray.get(j));
+                if(PlacesArray.get(i).equals(RoadsArray.get(j).getLink(1))){
+                    RoadsArray.get(j).setLink(1,PlacesArray.get(i));
+                    modifs++;
                 }
-                i++;
             }
-            j++;
-        }
+        System.out.println(modifs+" modifications ont ete effectuees.\n");
+    }
 
+    public void deleteDuplicateRoads(){
+        System.out.println("Debut suppression des routes doublons.");
+        int modifs = RoadsArray.size();
+        for(int i=0;i<RoadsArray.size();i++)
+            for(int j=RoadsArray.size()-1;j>i;j--)
+                if(compareLinks(RoadsArray.get(i),RoadsArray.get(j))){
+                    this.RoadsArray.remove(j);
+                    if(j!=RoadsArray.size()-1) j++;
+                }
+        modifs -=RoadsArray.size();
+        System.out.println(modifs+" suppressions effectuees apres nettoyage.\n");
+    }
+
+/*     public void deleteDuplicateRoads2(){
+        System.out.println("Nombre de routes avant suppression des doublons : "+RoadsArray.size());
+        for(int i=0; i<RoadsArray.size(); i++)
+            for(int j=i+1; j<RoadsArray.size(); j++)
+                if(compareLinks2(RoadsArray.get(i),RoadsArray.get(j))&&i!=j){
+                    RoadsArray.remove(j); 
+                    j--;
+                }
+        System.out.println("Nombre de routes apres nettoyage : "+RoadsArray.size()+"\n");
     } */
+
+/*     public boolean compareLinks(Roads R1, Roads R2){
+        boolean bool = false;
+        for(int i=0; i<2;i++)
+            for(int j=0; j<2;j++)
+                if((R1.getLink(j).equals(R2.getLink(i)))&&(R1.getLink(i).equals(R2.getLink(j)))&&i!=j&&R1.getKilometers()==R2.getKilometers())
+                    bool = true;
+        return bool;
+    } */
+
+    public boolean compareLinks(Roads R1, Roads R2){
+        boolean bool = false;
+        if(R1.getLink(0).equals(R2.getLink(1)) && R1.getLink(1).equals(R2.getLink(0)) && R1.getKilometers()==R2.getKilometers()) bool = true;
+        return bool;
+    }
 
     public ArrayList<Roads> getRoadsArray(){
         return this.RoadsArray;
@@ -97,6 +122,34 @@ public class ManageLists {
 
     public ArrayList<Places> getPlacesArray(){
         return this.PlacesArray;
+    }
+
+    public void printRoad(String PL){
+        int nbr = 0;
+        for (int i = 0; i <this.getRoadsArray().size(); i++){
+            if(this.RoadsArray.get(i).getLink(0).getName().equals(PL))
+                System.out.println(this.getRoadsArray().get(i));
+            if(this.RoadsArray.get(i).getLink(1).getName().equals(PL)){
+                System.out.println(this.getRoadsArray().get(i).toStringReversed());
+                nbr++;
+            }
+        }        
+        if(nbr==0) System.out.println("Aucune route partant de \""+PL+"\" n\'a ete trouvee, le lieu n'existe peut etre pas");
+        System.out.println("\n");
+    }
+
+    public void printPlace(String PL){
+        int nbr = 0;
+        for (int i = 0; i <this.getPlacesArray().size(); i++){
+            if(this.getPlacesArray().get(i).getName().equals(PL)){
+                System.out.println(this.getPlacesArray().get(i));
+                nbr++;
+                break;
+            }
+        }
+        if(nbr==0) System.out.println("Aucun lieu du nom de \""+PL+"\" n\'a ete trouve, verifiez l'ortographe et si le lieu existe");
+        System.out.println("\n");
+
     }
 }
 

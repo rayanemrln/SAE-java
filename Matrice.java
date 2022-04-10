@@ -1,5 +1,4 @@
 import java.util.*;
-import java.lang.*;
 
 public class Matrice {
     public static ArrayList<ArrayList<Roads>> matrice = new ArrayList<ArrayList<Roads>>();
@@ -18,15 +17,15 @@ public class Matrice {
             String sommet_ref = PL.get(ref).getName();
             for (Roads route : mat) {
                 System.out.println(ref);
-                if (route.getPlace1().getName().equals(sommet_ref)) {
-                    matrice.get(ref).set(route.getPlace2().getId()-1,route);  
-                    matrice.get(route.getPlace2().getId()-1).set(ref,route);
+                if (route.getLink(0).getName().equals(sommet_ref)) {
+                    matrice.get(ref).set(route.getLink(1).getId()-1,route);  
+                    matrice.get(route.getLink(1).getId()-1).set(ref,route);
                 }
             }
         }
     }
 
     public String toString() {
-        return "La valeur de la matrice est  : " + Matrice.matrice;
+        return ""+Matrice.matrice;
     }
 }

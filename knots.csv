@@ -8,7 +8,7 @@ V_Macon{A_70:V_Les-Echets,A_80:V_Meyzieu,N_80:V_Digoin,N_70:V_Villeurbanne}
 V_Andrezieux{N_50:V_L'abresle,A_17:V_Saint-etienne} 	
 V_Saint-etienne{A_17:V_Andrezieux,A_60:V_Venissieux} 		
 V_Venissieux{D_15:V_Parc-de-la-tete-d'or,A_60:V_Saint-etienne,A_20:L_Cinema-Brignais} 	
-V_Roanne{N_30:V_Balbygny,N_50:V_lapalisse} 	
+V_Roanne{N_30:V_Balbygny,N_50:V_lapalisse}
 V_Balbigny{A_55:V_L'abresle,N_30:V_Roanne} 		
 V_Digoin{N_80:V_Macon,D_40:V_Lapalisse} 			 	
 V_Craponne{N_25:R_Subway-Vaulx,A_30:R_KFC-Saint-Priest} 		 
